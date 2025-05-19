@@ -1,13 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+    <title>Tic-Tac-Toe Game</title>
     <script src="script.js"></script>
-    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    
+    <div class="container">
+        <header>
+            <h1>Tic Tac Toe Game by Naman</h1>
+            <div class="msg_container hide">
+                <button id="New_Game">New Game</button>
+                <p id="msg"></p>
+            </div>
+        </header>
+        <div id="board" class="board">
+            <button class="cell"></button>
+            <button class="cell"></button>
+            <button class="cell"></button>
+            <button class="cell"></button>
+            <button class="cell"></button>
+            <button class="cell"></button>
+            <button class="cell"></button>
+            <button class="cell"></button>
+            <button class="cell"></button>
+        </div>
+
+        <div class="winningmessage" id="winningmessage">
+            <div class="winningmessagetext">
+                <button id="Restart">Restart</button>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
