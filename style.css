@@ -37,6 +37,7 @@ body {
     font-size: 5rem;
     cursor: pointer;
     color: brown;
+    /* transition: background-color 0.3s; */
 }
 
 #Restart {
@@ -65,8 +66,13 @@ body {
 .msg_container {
     height: 16vmin;
     /* color: */
+    margin-top:  20px;
 }
 
 .hide{
     display: hide;
+}
+
+.fade-out{
+    opacity: 0.5;  
 }
