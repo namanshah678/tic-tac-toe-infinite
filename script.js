@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
         [2, 4, 6]
     ];
 
-    boxs.forEach((box) => {
+  boxs.forEach((box, index) => {
         box.addEventListener("click", () => {
             // console.log("clicked");
             if (turnO) {
