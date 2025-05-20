@@ -32,11 +32,18 @@ document.addEventListener("DOMContentLoaded", () => {
         fadedBox.classList.remove("fade-out");
         fadedMove = null;
             }
-            else {
-                box.innerText = "X";
-                turnO = true;
-            }
-            box.disabled = true;
+
+      const symbol = turnO ? "O" : "X";
+      box.innerText = symbol;
+      turnO = !turnO;
+
+      moveHistory.push({ index, value: symbol });
+
+      if (moveHistory.length > 6) {
+        fadedMove = moveHistory.shift(); 
+        const oldBox = boxs[fadedMove.index];
+        oldBox.classList.add("fade-out");
+      }
 
             checkwinner();
         });
