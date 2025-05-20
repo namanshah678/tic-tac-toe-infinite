@@ -1,28 +1,28 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const boxs = document.querySelectorAll('.cell');
-    const Restart = document.querySelector('#Restart');
-    const newGame = document.querySelector('#New_Game');
-    const msgcontainer = document.querySelector('.msg_container');
-    const msg1 = document.querySelector('#msg');
+  const boxs = document.querySelectorAll('.cell');
+  const Restart = document.querySelector('#Restart');
+  const newGame = document.querySelector('#New_Game');
+  const msgcontainer = document.querySelector('.msg_container');
+  const msg1 = document.querySelector('#msg');
 
-    let turnO = true;
+  let turnO = true;
   let moveHistory = [];  // { index, value }
   let gameOver = false;
   let fadedMove = null;
 
-    const winningConditions = [
-        [0, 1, 2],
-        [3, 4, 5],
-        [6, 7, 8],
-        [0, 3, 6],
-        [1, 4, 7],
-        [2, 5, 8],
-        [0, 4, 8],
-        [2, 4, 6]
-    ];
+  const winningConditions = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6]
+  ];
 
   boxs.forEach((box, index) => {
-        box.addEventListener("click", () => {
+    box.addEventListener("click", () => {
       if (box.innerText !== "" || gameOver) return;
 
       // Fade-out content
@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
         fadedBox.innerText = "";
         fadedBox.classList.remove("fade-out");
         fadedMove = null;
-            }
+      }
 
       const symbol = turnO ? "O" : "X";
       box.innerText = symbol;
@@ -44,10 +44,10 @@ document.addEventListener("DOMContentLoaded", () => {
         const oldBox = boxs[fadedMove.index];
         oldBox.classList.add("fade-out");
       }
-
-            checkwinner();
-        });
+     
+      checkwinner();
     });
+  });
 
   function checkwinner() {
     for (let pattern of winningConditions) {
@@ -61,12 +61,13 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
     }
+  }
 
-    const winner = (winner1) => {
-        msg1.innerText = `congratulations the winner is ${winner1}`;
-        msgcontainer.classList.remove("hide");
-        disabledBoxes();
-    }
+  function winner(player) {
+    msg1.innerText = `Congratulations! The winner is ${player}`;
+    msgcontainer.classList.remove("hide");
+    gameOver = true;
+  }
 
   function resetGame() {
     turnO = true;
@@ -79,10 +80,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     msgcontainer.classList.add("hide");
     msg1.innerText = "";
-                }
-            }
-        }
-    }
-    newGame.addEventListener('click', resetGame)
-    Restart.addEventListener('click', resetGame)
+  }
+
+  newGame.addEventListener('click', resetGame);
+  Restart.addEventListener('click', resetGame);
 });
+
