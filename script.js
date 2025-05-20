@@ -23,10 +23,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
   boxs.forEach((box, index) => {
         box.addEventListener("click", () => {
-            // console.log("clicked");
-            if (turnO) {
-                box.innerText = "O"
-                turnO = false;
+      if (box.innerText !== "" || gameOver) return;
+
+      // Fade-out content
+      if (fadedMove) {
+        const fadedBox = boxs[fadedMove.index];
+        fadedBox.innerText = "";
+        fadedBox.classList.remove("fade-out");
+        fadedMove = null;
             }
             else {
                 box.innerText = "X";
