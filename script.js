@@ -6,6 +6,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const msg1 = document.querySelector('#msg');
 
     let turnO = true;
+  let moveHistory = [];  // { index, value }
+  let gameOver = false;
+  let fadedMove = null;
 
     const winningConditions = [
         [0, 1, 2],
