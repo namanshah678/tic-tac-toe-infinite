@@ -42,23 +42,17 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    const resetGame = () => {
-        turnO = true;
-        EnabledBoxes();            
-        msgcontainer.classList.add("hide");
-        msg1.innerText = "";   // Hide the message container
-    };
-    const EnabledBoxes = () => {
-        boxs.forEach((box) => {
-            box.disabled = false;
-            box.innerText = "";
-        });
-    }
+  function checkwinner() {
+    for (let pattern of winningConditions) {
+      let [a, b, c] = pattern;
+      let po1 = boxs[a].innerText;
+      let po2 = boxs[b].innerText;
+      let po3 = boxs[c].innerText;
 
-    const disabledBoxes = () => {
-        boxs.forEach((box) => {
-            box.disabled = true;
-        });
+      if (po1 !== "" && po1 === po2 && po2 === po3) {
+        winner(po1);
+        return;
+      }
     }
 
     const winner = (winner1) => {
